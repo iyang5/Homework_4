@@ -44,7 +44,8 @@ Write the R code that will make that happen.
 
 ```{r Answer 1}
 
-#Insert the code to answer the problem here.
+pattern <- 'o?go?'
+gsub(pattern, '.', vText)
 
 ```
 
@@ -60,10 +61,16 @@ z <- "DO YOU LIKE GREEN EGGS AND HAM?"
 
 paste(x, y, z, collapse = NULL)
 
-
 ```
 
-Extra credit: What is the difference if you use the `paste0` function instead of the `paste` function above?
+**Extra credit:** What is the difference if you use the `paste0` function instead of the `paste` function above?
+
+```{r Extra Credit}
+
+paste0(x, y, z, collapse = NULL)
+
+```
+The above illustrates that the paste0 function merges the strings **without a space in between.**
 
 ####Problem 2.
 
@@ -78,13 +85,13 @@ Z <- "And the dish ran away with the spoon."
 
 ```
 
-Write the R code below to merge these 3 strings.
+Write the R code below to merge these 4 strings.
 
 ####Answer to Problem 2.
 
 ```{r Answer 2}
 
-#Insert the code to answer the problem here.
+paste(W, X, Y, Z, collapse = NULL)
 
 ```
 
@@ -120,7 +127,8 @@ Z <- "And the dish ran away with the spoon."
 
 ```{r Answer 3}
 
-#Insert the code to answer the problem here.
+paste(W, X, Y, Z, NA, collapse = NULL)
+str_c(W, X, Y, Z, NA, collapse = NULL)
 
 ```
 
@@ -152,7 +160,9 @@ Write the code below to extract the last 6 letters of her name.
 
 ```{r Answer 4}
 
-#Insert the code to answer the problem here.
+Length <- str_length(herName)
+last6letters <- str_sub(herName, Length-5, Length)
+last6letters
 
 ```
 
@@ -188,7 +198,8 @@ Split this new string into separate words:
 
 ```{r Answer 5}
 
-#Insert the code to answer the problem here.
+mySeparatedString_2 <- str_split(myNewString, "_")
+mySeparatedString_2
 
 ```
 
@@ -222,6 +233,8 @@ Split off the first word but leave the rest intact.
 ```{r Answer 6}
 
 #Insert the code to answer the problem here.
+myNewSplitSpring_2 <- str_split(myNewString, "_", n=2)
+myNewSplitSpring_2
 
 ```
 
@@ -249,7 +262,7 @@ Use the `stri_count_words` function as above to count the number of distinct wor
 
 ```{r Answer 7}
 
-#Insert the code to answer the problem here.
+stri_count_words(yourNewString)
 
 ```
 
@@ -276,7 +289,7 @@ nurses <-c("Nightingale", "Barton", "Dix", "Sanger", "Barton", "Woodruff", "Linc
 
 ```{r Answer 8}
 
-#Insert your code to address the problem here
+nurses[stri_duplicated(nurses)]
 
 ```
 
@@ -306,7 +319,7 @@ How can we form the string `0_1-2_3-4_5-6_7-8_9-'?
 
 ```{r Answer 9}
 
-#Insert the code to solve the problem here.
+stri_join(DIGITS, separators = c("_","-"), collapse = "")
 
 ```
 
@@ -338,7 +351,8 @@ Note that the word `head` also starts with `he` but we don't want to substitute 
 
 ```{r Answer 10}
 
-#Insert the code to answer the problem here.
+punModified_B <- stri_replace_all_fixed(pun, c("his", "he", "sher", "shead", "tshe"), c("her", "she", "her", "head", "the"), vectorize_all = FALSE)
+punModified_B
 
 ```
 
